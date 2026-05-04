@@ -3,6 +3,7 @@ import { useNews } from '../Contexts/NewsProvider'
 import { useNavigate, useParams } from 'react-router-dom'
 import Modal from './Modal'
 import EditNews from './EditNews'
+import { articles } from '../Contexts/articles'
 
 const EachNews = () => {
 
@@ -11,7 +12,7 @@ const EachNews = () => {
   const navigate = useNavigate()
 
   const selectedNews = news.find(
-  item => item.id === id
+  item => item.id.toString() === id
   )
 
   useEffect(() => {
@@ -45,10 +46,10 @@ const EachNews = () => {
         {newz.author && <p><strong>Author: </strong><em>{newz.author}</em></p>}
         <br />
 
-        {newz.urlToImage && <p><img className=' rounded' src={newz.urlToImage} alt="Image"/></p>}
+        {newz.imageUrl && <p><img className=' rounded' src={newz.imageUrl} alt="Image"/></p>}
         <br />
 
-        {newz.url && <p><strong>Read full: </strong><em><a href={newz.url} className=' text-blue-500 hover:text-blue-700 cursor-pointer'>{newz.url}</a></em></p>}
+        {newz.articleUrl && <p><strong>Read full: </strong><em><a href={newz.articleUrl} className=' text-blue-500 hover:text-blue-700 cursor-pointer'>{newz.articleUrl}</a></em></p>}
         <br/>
 
         {newz.publishedAt && <p><strong>Date Published: </strong><em>{newz.publishedAt}</em></p>}

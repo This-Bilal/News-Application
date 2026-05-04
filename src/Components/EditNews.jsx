@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { useNews } from '../Contexts/NewsProvider'
+import { articles } from '../Contexts/articles'
 
 const EditNews = () => {
   const navigate = useNavigate()
@@ -13,8 +14,8 @@ const EditNews = () => {
         description: "",
         content: "",
         author: "",
-        urlToImage: "",
-        url: "",
+        imageUrl: "",
+        articleUrl: "",
     });
 
 useEffect(() => {
@@ -25,8 +26,8 @@ useEffect(() => {
       description: newz.description || "",
       content: newz.content || "",
       author: newz.author || "",
-      urlToImage: newz.urlToImage || "",
-      url: newz.url || "",
+      imageUrl: newz.imageUrl || "",
+      articleUrl: newz.articleUrl || "",
     });
   }
 }, [newz]);
@@ -43,8 +44,8 @@ useEffect(() => {
             !form.content?.trim() ||
             !form.description?.trim() ||
             !form.title?.trim() ||
-            !form.url?.trim() ||
-            !form.urlToImage?.trim()) return;
+            !form.articleUrl?.trim() ||
+            !form.imageUrl?.trim()) return;
         editNews(form)
 
         setEditing(false)
@@ -99,9 +100,9 @@ useEffect(() => {
 
             <label className=' -mb-3'>Image url:</label>   
             <input 
-            name='urlToImage'
+            name='imageUrl'
             type="text" 
-            value={form.urlToImage}
+            value={form.imageUrl}
             placeholder='Image Url'
             onChange={handleChange}
             className=' flex-1 outline-none border-2 border-black p-2 rounded bg-white'
@@ -109,9 +110,9 @@ useEffect(() => {
 
             <label className=' -mb-3'>Article url:</label>   
             <input 
-            name='url'
+            name='articleUrl'
             type="text" 
-            value={form.url}
+            value={form.articleUrl}
             placeholder='News Url'
             onChange={handleChange}
             className=' flex-1 outline-none border-2 border-black p-2 rounded bg-white'

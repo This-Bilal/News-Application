@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNews } from '../Contexts/NewsProvider'
 import { useNavigate } from 'react-router-dom'
+import { articles } from '../Contexts/articles'
 
 const NewsForm = () => {
 
@@ -8,7 +9,14 @@ const NewsForm = () => {
 
     const {addNews, setOpen} = useNews()
 
-    const [newz, setNewz] = useState([])
+    const [newz, setNewz] = useState({
+        author: '',
+        content: '',
+        description: '',
+        title: '',
+        imageUrl: '',
+        articleUrl: ''
+    })
 
     const handleChange = (e) => {
         const {name, value} = e.target
@@ -17,9 +25,10 @@ const NewsForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (!newz.author.trim() || !newz.content.trim() || !newz.description.trim() || !newz.title.trim() || !newz.url.trim() || !newz.urlToImage.trim()) return;
+        if (!newz.author.trim() || !newz.content.trim() || !newz.description.trim() || !newz.title.trim() || !newz.imageUrl.trim() || !newz.articleUrl.trim()) return;
 
         addNews({
+            id: Date.now(),
             ...newz, 
             publishedAt: new Date().toISOString()
         })
@@ -28,8 +37,8 @@ const NewsForm = () => {
             content: '',
             description: '',
             title: '',
-            url: '',
-            urlToImage: ''
+            imageUrl: '',
+            articleUrl: '',
         })
     }
   return (
@@ -37,7 +46,7 @@ const NewsForm = () => {
         <button className='  cursor-pointer' onClick={() => setOpen(false)}>Back to Home</button>
         <h2 className=' font-bold text-4xl mb-4'>ADD NEWS</h2>
         <div className=' bg-blue-200 p-4 rounded-xl shadow-lg flex items-center justify-center lg:w-175 md:w-125'>
-        <form action='submit' method='POST'  
+        <form 
             onSubmit=  {handleSubmit}
             className=' flex flex-col gap-4'
             >
@@ -78,18 +87,18 @@ const NewsForm = () => {
             />
 
             <input 
-            name='urlToImage'
+            name='imageUrl'
             type="text" 
-            value={newz.urlToImage}
+            value={newz.imageUrl}
             placeholder='Image Url'
             onChange={handleChange}
             className=' flex-1 outline-none border-2 border-black p-2 rounded bg-white'
             />
 
             <input 
-            name='url'
+            name='articleUrl'
             type="text" 
-            value={newz.url}
+            value={newz.articleUrl}
             placeholder='News Url'
             onChange={handleChange}
             className=' flex-1 outline-none border-2 border-black p-2 rounded bg-white'

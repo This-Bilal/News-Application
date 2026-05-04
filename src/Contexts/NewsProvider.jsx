@@ -1,12 +1,21 @@
 import axios from 'axios'
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import { getNews, saveNews } from './Storage'
+import { articles } from './articles'
 
 const NewsContext = createContext()
 
 const NewsProvider = ({children}) => {
 
     const [news, setNews] = useState(() => getNews() || []) 
+
+    useEffect(() => {
+        const stored = getNews()
+
+        if (!stored || stored.length === 0) {
+            setNews(articles)
+    }
+}, [])
 
     const [newz, setNewz] = useState({
         author: '',
@@ -25,34 +34,6 @@ const NewsProvider = ({children}) => {
     const title = 'Are you sure?'
 
     useEffect(() => {
-
-        if (news.length > 0) return;
-
-        const fetchNews = async () => {
-            setLoading(true)
-
-            try {
-                const response = await axios.get('https://newsapi.org/v2/everything?q=apple&from=2026-04-30&to=2026-04-30&sortBy=popularity&apiKey=2e32e1f4f12145bb9e238b0cc178a537')
-
-                if (response?.data?.articles) {
-                    setNews(
-                        response.data.articles.map((newz) => ({
-                            id: crypto.randomUUID(),
-                            ...newz
-                        }))
-                        
-                    )
-                }
-            } catch (error) {
-                setError(error.message || 'Failed to fetch News')
-            } finally{
-                setLoading(false)
-            }
-        }
-        fetchNews()
-    }, [])
-
-    useEffect(() => {
         console.log(news);
     }, [news])
 
@@ -60,14 +41,14 @@ const NewsProvider = ({children}) => {
         setNews((prev) => [
             ...prev,
             {
-                id: crypto.randomUUID(),
+                id: Date.now(),
                 author: newz.author,
                 content: newz.content,
                 description: newz.description,
                 publishedAt: newz.publishedAt,
                 title: newz.title,
-                url: newz.url,
-                urlToImage: newz.urlToImage
+                articleUrl: newz.articleUrl,
+                imageUrl: newz.imageUrl
             }
         ])
     }
