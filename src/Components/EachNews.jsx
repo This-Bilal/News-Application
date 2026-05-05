@@ -3,7 +3,6 @@ import { useNews } from '../Contexts/NewsProvider'
 import { useNavigate, useParams } from 'react-router-dom'
 import Modal from './Modal'
 import EditNews from './EditNews'
-import { articles } from '../Contexts/articles'
 
 const EachNews = () => {
 

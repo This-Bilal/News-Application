@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { useNews } from '../Contexts/NewsProvider'
-import { articles } from '../Contexts/articles'
 
 const EditNews = () => {
   const navigate = useNavigate()
