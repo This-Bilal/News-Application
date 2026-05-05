@@ -7,16 +7,7 @@ const NewsForm = () => {
 
     const navigate = useNavigate()
 
-    const {addNews, setOpen} = useNews()
-
-    const [newz, setNewz] = useState({
-        author: '',
-        content: '',
-        description: '',
-        title: '',
-        imageUrl: '',
-        articleUrl: ''
-    })
+    const {addNews, setOpen, newz, setNewz} = useNews()
 
     const handleChange = (e) => {
         const {name, value} = e.target

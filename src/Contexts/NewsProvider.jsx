@@ -22,14 +22,13 @@ const NewsProvider = ({children}) => {
         content: '',
         description: '',
         title: '',
-        url: '',
-        urlToImage: ''
+        imageUrl: '',
+        articleUrl: ''
     })
 
     const [loading, setLoading] = useState(false)
     const [editing, setEditing] = useState(false)
     const [deleted, setDeleted] = useState(null)
-    const [error, setError] = useState(null)
     const [open, setOpen] = useState(false)
     const title = 'Are you sure?'
 
@@ -77,7 +76,7 @@ const NewsProvider = ({children}) => {
 })
 
   return (
-    <NewsContext.Provider value={{news, setNews, newz, setNewz, loading, editing, setEditing, deleted, setDeleted, addNews, editNews, deleteNews, error, title, open, setOpen, allNews, search, setSearch}}>{children}</NewsContext.Provider>
+    <NewsContext.Provider value={{news, setNews, newz, setNewz, loading, editing, setEditing, deleted, setDeleted, addNews, editNews, deleteNews, title, open, setOpen, allNews, search, setSearch}}>{children}</NewsContext.Provider>
   )
 }
 

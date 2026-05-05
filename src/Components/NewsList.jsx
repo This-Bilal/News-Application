@@ -5,7 +5,7 @@ import NewsForm from './NewsForm'
 
 
 const NewsList = () => {
-    const {loading, error, news, setOpen, open, allNews, search, setSearch} = useNews()
+    const {loading, news, setOpen, open, allNews, search, setSearch} = useNews()
 
   return (
     <div>
@@ -28,9 +28,7 @@ const NewsList = () => {
         <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-7'>
         {loading && <p>Loading...</p>}
 
-        {error && <p>{error}</p>}
-
-        {!loading && !error && news.length === 0 && <p>No News found</p>}
+        {!loading && news.length === 0 && <p>No News found</p>}
         
         {allNews.map((newz) => (
             <div key={newz.id} className=' bg-blue-200 rounded-xl p-5 text-justify hover:shadow-lg hover:bg-blue-300 transition-all flex flex-col justify-evenly hover:-translate-y-0.5 cursor-pointer'>
@@ -39,7 +37,7 @@ const NewsList = () => {
                     {newz.description && <p><strong>Description: </strong>{newz.description}</p>}
                     {newz.author && <p><strong>Author:</strong> <em>{newz.author}</em></p>}
                 </div>
-                <Link to={`/eachNewz/${newz.id}`} className=' bg-blue-400 px-1 rounded hover:bg-blue-200 transition-color w-fit mt-1 ' onClick={() => setOpenImg(true)}>
+                <Link to={`/eachNewz/${newz.id}`} className=' bg-blue-400 px-1 rounded hover:bg-blue-200 transition-color w-fit mt-1 '>
                     Read
                 </Link>
             </div>
