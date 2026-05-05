@@ -2,7 +2,7 @@ import React from 'react'
 import { useNews } from '../Contexts/NewsProvider'
 import { useNavigate, useParams } from 'react-router-dom'
 
-const Modal = ({children}) => {
+const Modal = () => {
     const {title, deleteNews, setOpen, newz} = useNews()
     const navigate = useNavigate()
   return (
@@ -19,7 +19,6 @@ const Modal = ({children}) => {
                 </button>
             </div>
         </div>
-        {children}
     </div>
   )
 }
