@@ -10,11 +10,11 @@ const Modal = ({children}) => {
         <div className=' flex bg-white rounded flex-col p-4 items-center gap-5'>
             <h2>{title}</h2>
             <div className=' flex gap-3'>
-                <button className=' bg-green-400 px-2 py1 rounded hover:bg-green-600 transition-color w-fit cursor-pointer' onClick={() => setOpen(false)}>
+                <button className=' bg-green-400 px-2 py1 rounded hover:bg-green-600 transition-colors w-fit cursor-pointer' onClick={() => setOpen(false)}>
                     Cancel
             </button>
 
-                <button className=' bg-red-400 px-2 py-1 rounded hover:bg-rose-500 transition-color w-fit cursor-pointer' onClick={() => {deleteNews((newz.id)); navigate(-1); setOpen(false)} }>
+                <button className=' bg-red-400 px-2 py-1 rounded hover:bg-rose-500 transition-colors w-fit cursor-pointer' onClick={() => {deleteNews((newz.id)); navigate(-1); setOpen(false)} }>
                     Confirm
                 </button>
             </div>

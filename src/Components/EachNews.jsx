@@ -56,11 +56,11 @@ const EachNews = () => {
         </div>
       </div>
       <div className=' flex gap-10 mt-4'>
-        <button className=' bg-green-400 px-2 py1 rounded hover:bg-green-600 transition-color w-fit mb-4 cursor-pointer' onClick={() => setEditing(true)}>
+        <button className=' bg-green-400 px-2 py1 rounded hover:bg-green-600 transition-colors w-fit mb-4 cursor-pointer' onClick={() => setEditing(true)}>
           Edit
         </button>
 
-        <button className=' bg-red-400 px-2 py-1 rounded hover:bg-rose-500 transition-color w-fit mb-4 cursor-pointer' onClick={() => setOpen(true)}>
+        <button className=' bg-red-400 px-2 py-1 rounded hover:bg-rose-500 transition-colors w-fit mb-4 cursor-pointer' onClick={() => setOpen(true)}>
           Delete
         </button>
         {
