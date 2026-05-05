@@ -58,7 +58,7 @@ useEffect(() => {
             onSubmit=  {handleSubmit}
             className=' flex flex-col gap-4'
             >
-             <label className=' -mb-3'>Title:</label>   
+             <label className=' -mb-3'><strong>Title:</strong></label>   
             <input 
             name='title'
             type="text" 
@@ -68,7 +68,7 @@ useEffect(() => {
             className=' flex-1 outline-none border-2 border-black p-2 rounded lg:w-150 md:w-100 bg-white'
             />
 
-            <label className=' -mb-3'>Description:</label>   
+            <label className=' -mb-3'><strong>Description:</strong></label>   
             <input 
             name='description'
             type="text" 
@@ -78,7 +78,7 @@ useEffect(() => {
             className=' flex-1 outline-none border-2 border-black p-2 rounded bg-white'
             />
 
-            <label className=' -mb-3'>Content:</label>   
+            <label className=' -mb-3'><strong>Content:</strong></label>   
             <input 
             name='content'
             type="text" 
@@ -88,7 +88,7 @@ useEffect(() => {
             className=' flex-1 outline-none border-2 border-black p-2 rounded bg-white'
             />
 
-            <label className=' -mb-3'>Author:</label>   
+            <label className=' -mb-3'><strong>Author:</strong></label>   
             <input 
             name='author'
             type="text" 
@@ -98,7 +98,7 @@ useEffect(() => {
             className=' flex-1 outline-none border-2 border-black p-2 rounded bg-white'
             />
 
-            <label className=' -mb-3'>Image url:</label>   
+            <label className=' -mb-3'><strong>Image url:</strong></label>   
             <input 
             name='imageUrl'
             type="text" 
@@ -108,7 +108,7 @@ useEffect(() => {
             className=' flex-1 outline-none border-2 border-black p-2 rounded bg-white'
             />
 
-            <label className=' -mb-3'>Article url:</label>   
+            <label className=' -mb-3'><strong>Article url:</strong></label>   
             <input 
             name='articleUrl'
             type="text" 
