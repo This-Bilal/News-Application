@@ -29,7 +29,7 @@ const EachNews = () => {
 
   if (!newz) return <div>News not found.</div>
   return (
-    <div className=' flex flex-col items-center my-10 break-all sm:px-3 w-screen'>
+    <div className=' flex flex-col items-center my-10 break-all sm:px-3'>
       <button onClick={() => navigate(-1)} className=' bg-blue-400 px-2 py-1 rounded hover:bg-blue-200 transition-color w-fit mb-4 cursor-pointer'>
         Back to news list
       </button>
